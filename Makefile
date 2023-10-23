@@ -3,10 +3,10 @@ PARENT_MKFILE   := $(HOME)/.Makefile
 
 include $(PARENT_MKFILE)
 
-PATH_TO_WORK := ./carlosrodlop-dojo/go-snippets
+PATH_TO_WORK := ./carlosrodlop/go-snippets
 
 .PHONY: newModule
-newModule: ## Create a new module
+newModule: ## Create a new module. Eg: MOD=04_Receivers make newModule
 newModule:
 	mkdir $(MOD)
 	cd $(MOD) && \
