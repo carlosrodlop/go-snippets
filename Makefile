@@ -3,14 +3,23 @@ PARENT_MKFILE   := $(HOME)/.Makefile
 
 include $(PARENT_MKFILE)
 
-PATH_TO_WORK := ./carlosrodlop/go-snippets
+#where the go.mod files are located
+PATH_TO_MOD := ./github/carlosrodlop/go-snippets
+#where the go.work file is located
+PATH_TO_WS  := ../../../
 
+#https://go.dev/doc/tutorial/workspaces
 .PHONY: newModule
-newModule: ## Create a new module. Eg: MOD=04_Receivers make newModule
+newModule: ## Create a new module passed as parameter (MOD). Eg: MOD=04_Receivers make newModule
 newModule:
 	mkdir $(MOD)
 	cd $(MOD) && \
 		echo "package main" > main.go && \
 		echo "func main() {}" >> main.go && \
 		go mod init $(MOD)
-	echo "add to go.work $(PATH_TO_WORK)/$(MOD)"
+	cd $(PATH_TO_WS) && go work use $(PATH_TO_MOD)/$(MOD)
+
+.PHONY: newModule
+run: ## Run an existing module passed as parameter (MOD). Eg: MOD=02_pointer make run
+run:
+	cd $(MOD) && go run main.go
