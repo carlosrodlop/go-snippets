@@ -1,3 +1,3 @@
 module 08_Interfaces
 
-go 1.21.3
+go 1.21.2

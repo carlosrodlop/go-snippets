@@ -1,3 +1,3 @@
 module 06_DesicionStructures
 
-go 1.21.3
+go 1.21.2

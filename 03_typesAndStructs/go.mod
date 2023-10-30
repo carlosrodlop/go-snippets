@@ -1,3 +1,3 @@
 module 03_typesAndStructs
 
-go 1.21.3
+go 1.21.2
